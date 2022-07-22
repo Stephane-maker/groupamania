@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, NgModule } from '@angular/core';
 
+
+export class AppModule { }
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
+
 
   ngOnInit(): void {
-  }
 
+  }
+  onProfil() {
+    this.router.navigateByUrl("profil");
+  }
+  onAcceuille() {
+    this.router.navigateByUrl("accueille");
+  }
 }
