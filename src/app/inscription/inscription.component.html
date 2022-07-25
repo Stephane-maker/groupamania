@@ -1,0 +1,15 @@
+<p>inscription works!</p>
+
+<h2>Incription</h2>
+
+<div>
+    <form [formGroup]="inscriptionForm">
+        <label for="email">Your Email</label>
+        <input type="text" name="email" id="" aria-label="email" formControlName="email">
+
+        <label for="password">Your Password</label>
+        <input type="password" name="password" id="" aria-label="password" formControlName="password">
+
+        <button type="submit" (click)="onTest()">Valider</button>
+    </form>
+</div>

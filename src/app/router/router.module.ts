@@ -1,3 +1,4 @@
+import { InscriptionComponent } from './../inscription/inscription.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule , Routes , Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 const routes: Routes = [
   { path: 'accueille', component: PageAccueilleComponent },
   { path: 'profil', component: PageProfilComponent },
+  {path: "" , component: InscriptionComponent},
   { path: "**" , component: PageNotFoundComponent}
 ];
 

@@ -8,6 +8,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageAccueilleComponent } from './page-accueille/page-accueille.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageProfilComponent } from './page-profil/page-profil.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InscriptionComponent } from './inscription/inscription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +17,13 @@ import { PageProfilComponent } from './page-profil/page-profil.component';
     PageAccueilleComponent,
     PageNotFoundComponent,
     PageProfilComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
