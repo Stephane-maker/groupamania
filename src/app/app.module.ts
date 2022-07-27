@@ -10,6 +10,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PageProfilComponent } from './page-profil/page-profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +21,14 @@ import { InscriptionComponent } from './inscription/inscription.component';
     PageNotFoundComponent,
     PageProfilComponent,
     InscriptionComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -31,4 +36,5 @@ import { InscriptionComponent } from './inscription/inscription.component';
 
 
 export class AppModule {
+
 }

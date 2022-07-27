@@ -1,18 +1,15 @@
 <nav>
-    <div class="container_nav-title">
-        Groupamania
-    </div>
+    <ul>
+        <li class="title">Groupamania</li>
+        <li (click)="onAcceuille()">Accueille
+            <fa-icon [icon]="faDoorOpen"></fa-icon>
+        </li>
+        <li (click)="onProfil()">
+            Profil
+            <fa-icon [icon]="faUser"></fa-icon>
+        </li>
+        <li class="logout_button">Deconnexion</li>
+    </ul>
 
-    <div class="container_nav-input">
-        <input type="text" aria-label="enter name">
-        <button>Valider</button>
-    </div>
 
-    <div class="container_nav-navigation">
-        <ul>
-            <li (click)="onAcceuille()">Accueille</li>
-            <li (click)="onProfil()">Profil</li>
-            <li>Deconnexion</li>
-        </ul>
-    </div>
 </nav>
