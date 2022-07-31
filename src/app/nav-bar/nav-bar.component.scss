@@ -1,15 +1,11 @@
+@import "src/app/assets/scss/_variable.scss";
 nav {
-    display: flex;
-    border: 1px solid black;
-    align-items: baseline;
-    justify-content: space-between;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #6200EE;
-    color: #fff;
+    font-size: 2rem;
+    color: $tertiaire;
 }
 
 @font-face {
@@ -17,49 +13,29 @@ nav {
     src: url('../../assets/font/DancingScript-VariableFont_wght.ttf') format("opentype");
 }
 
-.container_nav {
-    &-title {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.title {
+    font-family: "DancingScript";
+    margin-right: 5%;
+    font-size: 2rem;
+    width: 25%;
+}
+
+li {
+    float: left;
+    margin: 0 2% 0 2%;
+    &:hover {
         cursor: pointer;
-        font-family: "DancingScript", Arial, Helvetica, sans-serif;
-        font-weight: bolder;
-        font-size: 1.5rem;
-        padding: 0% 1% 0% 1%;
+        color: $primaire;
     }
-    &-navigation {
-        cursor: pointer;
-        padding: 0% 4% 0% 4%;
-        & ul {
-            list-style-type: none;
-            display: flex;
-            & li {
-                margin: 0 4% 0 4%;
-            }
-        }
-    }
-    &-input {
-        width: 30%;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        & input {
-            width: 70%;
-            height: 2rem;
-            font-size: 1.8rem;
-            border-radius: 0.5rem;
-            margin-right: 1%;
-        }
-        & button {
-            border: 1px solid #fff;
-            color: #fff;
-            background-color: #6200EE;
-            width: 20%;
-            height: 2rem;
-            border-radius: 0.5rem;
-            font-family: "DancingScript", Arial, Helvetica, sans-serif;
-            font-weight: bolder;
-            font-size: 1.5rem;
-        }
-    }
+}
+
+.logout_button {
+    float: right;
 }

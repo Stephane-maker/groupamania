@@ -1,5 +1,11 @@
+
+
+
 import { Router } from '@angular/router';
 import { Component, OnInit, NgModule } from '@angular/core';
+import {  faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 export class AppModule { }
@@ -11,8 +17,8 @@ export class AppModule { }
 export class NavBarComponent implements OnInit {
 
   constructor(private router : Router) { }
-
-
+  faHouse = faHouse;
+  faUser = faUser;
   ngOnInit(): void {
 
   }

@@ -25,9 +25,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
   constructor(private router: Router) { }
-
-  onProfil() {
-    this.router.navigateByUrl("profil");
-  }
 }
 
