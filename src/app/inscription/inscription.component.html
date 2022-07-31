@@ -4,12 +4,17 @@
 
 <div>
     <form [formGroup]="inscriptionForm">
-        <label for="email">Your Email</label>
-        <input type="text" name="email" id="" aria-label="email" formControlName="email">
+        <label for="email">Your Email *:</label>
+        <input type="text" name="email" aria-label="email" formControlName="email" required>
 
-        <label for="password">Your Password</label>
-        <input type="password" name="password" id="" aria-label="password" formControlName="password">
-
-        <button type="submit" (click)="onTest()">Valider</button>
+        <label for="password">Your Password *:</label>
+        <input type="password" name="password" aria-label="password" formControlName="password">
+        <div *ngIf="!this.inscriptionForm.value.password">
+            Votre mot de passe doit contenir au minimum 2 caractere
+        </div>
+        <button type="submit " (click)="onTest()" [disabled]="inscriptionForm.invalid">Valider</button>
     </form>
+    <div *ngIf="this.inscriptionForm.invalid ">
+        Veuillez remplir tout les champs obligatoire (* champ obligatoire)
+    </div>
 </div>

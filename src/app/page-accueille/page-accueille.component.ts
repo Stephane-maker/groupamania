@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { GroupamaniaComponent } from './../groupamania/groupamania.component';
+
+
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-page-accueille',
@@ -8,8 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class PageAccueilleComponent implements OnInit {
 
   constructor() { }
-
+  groupamaniaComponent!: GroupamaniaComponent;
   ngOnInit(): void {
+
   }
 
 }

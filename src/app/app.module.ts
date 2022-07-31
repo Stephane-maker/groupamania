@@ -1,3 +1,7 @@
+import { GroupamaniaService } from './service/groupamania.service';
+
+
+
 import { AppRoutingModule } from './router/router.module';
 
 import { NgModule } from '@angular/core';
@@ -11,6 +15,11 @@ import { PageProfilComponent } from './page-profil/page-profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GroupamaniaComponent } from './groupamania/groupamania.component';
+import { GeneralPostComponent } from './general-post/general-post.component';
+
+
+
 
 
 @NgModule({
@@ -20,7 +29,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PageAccueilleComponent,
     PageNotFoundComponent,
     PageProfilComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    GroupamaniaComponent,
+    GeneralPostComponent,
 
   ],
   imports: [
@@ -29,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
