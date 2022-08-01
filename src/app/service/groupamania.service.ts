@@ -10,39 +10,39 @@ export class GroupamaniaService implements OnInit {
  Post: GroupamaniaGeneralPost[] = [
     {
       FirstName: 'Archibald',
-      LastName: 'Mon meilleur ami depuis tout petit !',
-      PostGroupamania: "hey",
+      LastName: 'Dupont',
       ImageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+      PostGroupamania: "Je suis un nounours",
     },
     {
-      FirstName: 'Three Rock Mountain',
-      LastName: 'Un endroit magnifique pour les randonnées.',
-      PostGroupamania:"hey2",
+      FirstName: 'Dylan',
+      LastName: 'Jean',
       ImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
+      PostGroupamania:"Un endroit magnifique pour les randonnées.",
     },
     {
-      FirstName: 'Un bon repas',
-      LastName: 'Mmmh que c\'est bon !',
-      PostGroupamania: "hey3",
+      FirstName: 'Guillaume',
+      LastName: 'Martin ',
       ImageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
+      PostGroupamania: "Mmmh que c\'est bon !",
     },
     {
       FirstName: 'Archibald',
-      LastName: 'Mon meilleur ami depuis tout petit !',
-      PostGroupamania: "hey4",
+      LastName: 'Richard ',
       ImageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+      PostGroupamania: "Mon meilleur ami depuis tout petit !",
     },
     {
-      FirstName: 'Three Rock Mountain',
-      LastName: 'Un endroit magnifique pour les randonnées.',
-      PostGroupamania: "hey5",
+      FirstName: 'Clothilde',
+      LastName: 'Dubois',
       ImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
+      PostGroupamania: "Un endroit magnifique pour les randonnées.",
     },
     {
-      FirstName: 'Un bon repas',
-      LastName: 'Mmmh que c\'est bon !',
-      PostGroupamania: "hey6",
+      FirstName: 'Ludovic',
+      LastName: 'Durand ',
       ImageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
+      PostGroupamania: "un bon repas dans un restaurant cosi",
     }
   ];
   ngOnInit(): void {

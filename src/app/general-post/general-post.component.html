@@ -1,3 +1,47 @@
-<div>
-    {{post.FirstName}}
+<div class="container_post">
+    <div class="card-groupamania">
+        <h3>
+            {{post.FirstName}} {{post.LastName}}
+        </h3>
+        <div class="card-image">
+            <img [src]="post.ImageUrl" [alt]="post.FirstName">
+        </div>
+        <div>
+            {{post.PostGroupamania}}
+        </div>
+        <div class="card-reaction">
+            <div>
+                <fa-icon [icon]="faThumbsUp"></fa-icon> J'aime
+            </div>
+            <div>
+                <fa-icon [icon]="faCommentDots"></fa-icon> Commentaire
+            </div>
+        </div>
+        <div class="card-commentaire">
+            <div class="card-commentaire_input">
+                <h3>
+                    {{post.FirstName}} {{post.LastName}}
+                </h3>
+                <div class="container_input">
+                    <input type="text" aria-label="commentaire">
+                </div>
+
+            </div>
+            <p class="card-info">Appuyer sur entre pour publier votre commentaire</p>
+
+            <div>
+                <div class="container_commentaire">
+                    <h3>
+                        {{post.FirstName}} {{post.LastName}}
+                    </h3>
+                    <div class="commentaire">
+                        <div class="post_commentaire">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
