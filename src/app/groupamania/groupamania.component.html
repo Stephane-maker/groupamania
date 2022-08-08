@@ -1,1 +1,1 @@
-<app-general-post *ngFor="let Posts of Post" [post]="Posts"></app-general-post>
+<app-general-post *ngFor="let Post of Posts$ | async" [post]="Post"></app-general-post>

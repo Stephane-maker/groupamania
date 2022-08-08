@@ -1,5 +1,3 @@
-import { GroupamaniaComponent } from './../groupamania/groupamania.component';
-
 
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -12,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PageAccueilleComponent implements OnInit {
 
   constructor() { }
-  groupamaniaComponent!: GroupamaniaComponent;
+
   ngOnInit(): void {
 
   }

@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { GroupamaniaGeneralPost } from './../models/groupamania-post.model';
 import { GroupamaniaService } from './../service/groupamania.service';
 
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 
@@ -12,9 +14,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GroupamaniaComponent implements OnInit {
 
-  Post!: GroupamaniaGeneralPost[];
-  constructor(private groupamaniaService: GroupamaniaService){}
- ngOnInit(): void {
-   this.Post = this.groupamaniaService.getAllPost();
+  Posts$!: Observable<GroupamaniaGeneralPost[]>
+
+  constructor(private groupamaniaService: GroupamaniaService ){}
+  ngOnInit(): void {
+
+    this.Posts$ = this.groupamaniaService.getAllPost();
+
  }
 }

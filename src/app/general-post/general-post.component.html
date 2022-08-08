@@ -1,11 +1,12 @@
 <div class="container_post">
     <div class="card-groupamania">
         <h3>
-            {{post.FirstName}} {{post.LastName}}
+            {{post.post}} {{post.LastName}}
         </h3>
         <div class="card-image">
-            <img [src]="post.ImageUrl" [alt]="post.FirstName">
+            <img [src]="post.ImageUrl" [alt]="post.FirstName" *ngIf="post.ImageUrl">
         </div>
+
         <div>
             {{post.PostGroupamania}}
         </div>
@@ -25,7 +26,7 @@
                 <div class="container_input">
                     <input type="text" aria-label="commentaire">
                 </div>
-
+                <button (click)="onclick()">Voir le post</button>
             </div>
             <p class="card-info">Appuyer sur entre pour publier votre commentaire</p>
 

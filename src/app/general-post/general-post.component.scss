@@ -9,7 +9,7 @@
 
 .card {
     &-groupamania {
-        background-color: aliceblue;
+        background-color: $secondaire;
         border: 1.2px solid $tertiaire;
         display: flex;
         flex-direction: column;
