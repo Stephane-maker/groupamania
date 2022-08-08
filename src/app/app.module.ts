@@ -1,6 +1,3 @@
-import { GroupamaniaService } from './service/groupamania.service';
-
-
 
 import { AppRoutingModule } from './router/router.module';
 
@@ -17,9 +14,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GroupamaniaComponent } from './groupamania/groupamania.component';
 import { GeneralPostComponent } from './general-post/general-post.component';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { OnePostComponent } from './one-post/one-post.component';
 
 
 @NgModule({
@@ -32,15 +28,15 @@ import { GeneralPostComponent } from './general-post/general-post.component';
     InscriptionComponent,
     GroupamaniaComponent,
     GeneralPostComponent,
-
+    OnePostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

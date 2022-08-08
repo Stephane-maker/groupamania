@@ -28,4 +28,5 @@ export class NavBarComponent implements OnInit {
   onAcceuille() {
     this.router.navigateByUrl("accueille");
   }
+
 }

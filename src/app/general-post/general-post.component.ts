@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+
 import { GroupamaniaService } from './../service/groupamania.service';
 
 import { Component, Input, OnInit } from '@angular/core';
@@ -12,11 +14,18 @@ import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 export class GeneralPostComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faCommentDots = faCommentDots;
+
+
   @Input() post!: GroupamaniaGeneralPost;
-  constructor(private groupamaniaService:GroupamaniaService) { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.post)
+
+  }
+  onclick() {
+    this.router.navigateByUrl("accueille/" + this.post._id);
+    return this.post._id
   }
 
 }
