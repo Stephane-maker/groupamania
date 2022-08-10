@@ -1,7 +1,9 @@
+import { GroupamaniaService } from './../service/groupamania.service';
 import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class InscriptionComponent implements OnInit {
 
   inscriptionForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router:Router) { }
+  constructor(private formBuilder: FormBuilder, private router:Router , private groupamaniaService: GroupamaniaService) { }
 
   ngOnInit(): void {
     this.inscriptionForm = this.formBuilder.group({
@@ -25,7 +27,8 @@ export class InscriptionComponent implements OnInit {
   }
 
   onTest() {
-    console.log(this.inscriptionForm.value)
-    this.router.navigateByUrl("/accueille")
+    this.groupamaniaService.InscriptionUser( this.inscriptionForm.value.email, this.inscriptionForm.value.password).subscribe(data => {
+     return   this.inscriptionForm.value.email,  this.inscriptionForm.value.password
+   })
   }
 }

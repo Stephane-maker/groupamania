@@ -14,9 +14,13 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GroupamaniaComponent } from './groupamania/groupamania.component';
 import { GeneralPostComponent } from './general-post/general-post.component';
+import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from '@angular/common/http';
 import { OnePostComponent } from './one-post/one-post.component';
 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -36,7 +40,14 @@ import { OnePostComponent } from './one-post/one-post.component';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:3000"],
+        disallowedRoutes: ["http://localhost:4200"],
+      },
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
