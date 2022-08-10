@@ -1,21 +1,19 @@
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError, catchError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from "./../models/groupamania-post.model";
 import { GroupamniaServiceConnexionUser } from "./../models/user-connexion.model";
+
+
 @Injectable({
   providedIn: 'root'
 })
-export class GroupamaniaService implements OnInit {
-
+export class GroupamaniaService  {
+  test!: string;
   constructor(private http: HttpClient) { }
-  Post: GroupamaniaGeneralPost[] = [];
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
 
-  }
+
   getAllPost(): Observable<GroupamaniaGeneralPost[]>{
     return this.http.get<GroupamaniaGeneralPost[]>('http://localhost:3000/api/allPost');
   }
@@ -25,10 +23,29 @@ export class GroupamaniaService implements OnInit {
     return this.http.get<GroupamaniaGeneralPost>(`http://localhost:3000/api/allPost/${_id}`);
   }
 
-  InscriptionUser(email: string, password: string): Observable<GroupamniaServiceConnexionUser>{
-    console.log({email,password})
-    return this.http.post<GroupamniaServiceConnexionUser>("http://localhost:3000/api/auth/signup", {email ,password});
+  InscriptionUser(email: string, password: string ): Observable<GroupamniaServiceConnexionUser>{
+    return this.http.post<GroupamniaServiceConnexionUser>("http://localhost:3000/api/auth/signup", { email, password })
+      .pipe(
+        catchError(this.handleError)
+
+    )
+
   }
+
+  private handleError(error: HttpErrorResponse) {
+  if (error.status === 0) {
+    // A client-side or network error occurred. Handle it accordingly.
+    console.error('An error occurred:', error.error.error);
+  } else {
+    // The backend returned an unsuccessful response code.
+    // The response body may contain clues as to what went wrong.
+    console.error(
+      `Backend returned code ${error.status}, body was: `, error.error.error);
+  }
+  // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
+
+}
 
 }
 
