@@ -27,8 +27,8 @@ export class GroupamaniaService  {
     return this.http.post<GroupamniaServiceConnexionUser>("http://localhost:3000/api/auth/signup", { email, password })
       .pipe(
         catchError(this.handleError)
-
     )
+
 
   }
 
@@ -43,8 +43,7 @@ export class GroupamaniaService  {
       `Backend returned code ${error.status}, body was: `, error.error.error);
   }
   // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
-
+     return throwError(() => new Error('Something bad happened; please try again later.'));
 }
 
 }

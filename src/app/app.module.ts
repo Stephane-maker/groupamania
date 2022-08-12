@@ -1,4 +1,6 @@
 
+
+
 import { AppRoutingModule } from './router/router.module';
 
 import { NgModule } from '@angular/core';
@@ -18,9 +20,17 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from '@angular/common/http';
 import { OnePostComponent } from './one-post/one-post.component';
 
-export function tokenGetter() {
-  return localStorage.getItem("access_token");
-}
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { RedirectingConnexionComponent } from './redirecting-connexion/redirecting-connexion.component';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +42,8 @@ export function tokenGetter() {
     InscriptionComponent,
     GroupamaniaComponent,
     GeneralPostComponent,
-    OnePostComponent
+    OnePostComponent,
+    RedirectingConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,15 +52,24 @@ export function tokenGetter() {
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:3000"],
-        disallowedRoutes: ["http://localhost:4200"],
-      },
-    })
+    // JwtModule.forRoot({
+    //   config: {
+
+    //     allowedDomains: ["localhost:3000"],
+    //     disallowedRoutes: ["http://localhost:4200"],
+    //   },
+    // }),
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 

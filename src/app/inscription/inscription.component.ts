@@ -1,11 +1,11 @@
-import { throwError } from 'rxjs';
-import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { GroupamaniaService } from './../service/groupamania.service';
 import { Router } from '@angular/router';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
 
 
 
@@ -14,10 +14,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.scss']
 })
-export class InscriptionComponent implements OnInit {
 
+export class InscriptionComponent implements OnInit {
   inscriptionForm!: FormGroup;
-  test!: string
 
 
 
@@ -33,11 +32,11 @@ export class InscriptionComponent implements OnInit {
   }
   onTest() {
 
-    this.groupamaniaService.InscriptionUser(this.inscriptionForm.value.email, this.inscriptionForm.value.password).subscribe((data) => {
+    this.groupamaniaService.InscriptionUser(this.inscriptionForm.value.email, this.inscriptionForm.value.password).subscribe((error) => {
+
       return this.inscriptionForm.value.email, this.inscriptionForm.value.password
     }
-
-    )
-  }
+  )
+}
 }
 
