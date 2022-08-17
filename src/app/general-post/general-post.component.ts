@@ -1,10 +1,10 @@
 import { Router } from '@angular/router';
 
-import { GroupamaniaService } from './../service/groupamania.service';
-
 import { Component, Input, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from '../models/groupamania-post.model';
-import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { UserToken } from '../models/user-token.model';
+import { LocalizedString, Token } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-general-post',
@@ -12,18 +12,23 @@ import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./general-post.component.scss']
 })
 export class GeneralPostComponent implements OnInit {
-  faThumbsUp = faThumbsUp;
-  faCommentDots = faCommentDots;
+  tokenLocalStorage!: any;
+  userId!: any;
 
 
   @Input() post!: GroupamaniaGeneralPost;
 
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.tokenLocalStorage = localStorage.getItem("access_token");
+    this.userId = localStorage.getItem("ID");
 
   }
-  onclick() {
+
+
+  onPostById() {
     this.router.navigateByUrl("accueille/" + this.post._id);
     return this.post._id
   }

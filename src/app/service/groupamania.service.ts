@@ -3,13 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from "./../models/groupamania-post.model";
 import { GroupamniaServiceConnexionUser } from "./../models/user-connexion.model";
+import { UserToken } from "./../models/user-token.model";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupamaniaService  {
-  test!: string;
   constructor(private http: HttpClient) { }
 
 
@@ -28,8 +28,13 @@ export class GroupamaniaService  {
       .pipe(
         catchError(this.handleError)
     )
+  }
 
-
+    ConnexionUser(email: string, password: string ): Observable<UserToken>{
+    return this.http.post<UserToken>("http://localhost:3000/api/auth/login", { email, password })
+      .pipe(
+        catchError(this.handleError)
+    )
   }
 
   private handleError(error: HttpErrorResponse) {

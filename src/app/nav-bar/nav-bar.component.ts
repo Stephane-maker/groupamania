@@ -28,5 +28,11 @@ export class NavBarComponent implements OnInit {
   onAcceuille() {
     this.router.navigateByUrl("accueille");
   }
+  onDeconnexion() {
+    localStorage.clear()
+    if (!localStorage.getItem("access_token") && !localStorage.getItem("ID")) {
+      this.router.navigateByUrl("/")
+    }
+  }
 
 }

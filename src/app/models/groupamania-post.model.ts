@@ -8,7 +8,8 @@ export class GroupamaniaGeneralPost {
     public post: string,
     public LastName: string,
     public PostGroupamania: string,
-    public ImageUrl: string
+    public ImageUrl: string,
+    public userIdPoster: string,
   ) {
 
   }
