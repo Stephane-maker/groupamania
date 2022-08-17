@@ -4,7 +4,6 @@
 import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 
 import { OnePostComponent } from './../one-post/one-post.component';
-import { InscriptionComponent } from './../inscription/inscription.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule , Routes , Router } from '@angular/router';

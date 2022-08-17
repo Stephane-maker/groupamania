@@ -12,7 +12,6 @@ import { PageAccueilleComponent } from './page-accueille/page-accueille.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageProfilComponent } from './page-profil/page-profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InscriptionComponent } from './inscription/inscription.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GroupamaniaComponent } from './groupamania/groupamania.component';
 import { GeneralPostComponent } from './general-post/general-post.component';
@@ -39,7 +38,6 @@ import { MatRadioModule } from '@angular/material/radio';
     PageAccueilleComponent,
     PageNotFoundComponent,
     PageProfilComponent,
-    InscriptionComponent,
     GroupamaniaComponent,
     GeneralPostComponent,
     OnePostComponent,
@@ -52,13 +50,15 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    // JwtModule.forRoot({
-    //   config: {
-
-    //     allowedDomains: ["localhost:3000"],
-    //     disallowedRoutes: ["http://localhost:4200"],
-    //   },
-    // }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+    return localStorage.getItem("access_token");
+  },
+        allowedDomains: ["localhost:3000"],
+        disallowedRoutes: ["http://localhost:3000/api/auth/signup","http://localhost:3000/api/auth/login" ],
+      },
+    }),
     BrowserAnimationsModule,
     MatCardModule,
     MatIconModule,

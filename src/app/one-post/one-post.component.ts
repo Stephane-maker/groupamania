@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { GroupamaniaGeneralPost } from './../models/groupamania-post.model';
 import { GroupamaniaService } from './../service/groupamania.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,18 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnePostComponent implements OnInit {
 
-  OnePostGroupamania!: GroupamaniaGeneralPost;
+  thePost!: string;
+  userIdPoster!: string;
   IdToPost!: string;
+  IdUser!: any;
 
-  constructor(private groupamaniaService: GroupamaniaService, private http: HttpClient) { }
+  constructor(private groupamaniaService: GroupamaniaService) { }
   ngOnInit(): void {
     this.IdToPost = document.location.href.split("/")[4];
 
     this.groupamaniaService.getPostById(this.IdToPost).subscribe(data => {
-      this.OnePostGroupamania = data
-
+      console.log(data)
+      this.thePost = data.post
+      this.userIdPoster = data.userIdPoster
     })
-
+    this.IdUser = localStorage.getItem("ID")
   }
 
 }

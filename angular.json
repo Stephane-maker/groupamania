@@ -28,13 +28,16 @@
                             "src/favicon.ico",
                             "src/assets"
                         ],
-                        "styles": [{
-                            "input": "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                            "inject": true,
-                            "bundleName": "external-module"
-                        }],
+                        "styles": [
+                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                            {
+                                "input": "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                                "inject": false,
+                                "bundleName": "external-module"
+                            }
+                        ],
                         "scripts": [{
-                            "input": "src/external-module/main.js",
+                            "input": "node_modules/@angular/platform-browser-dynamic/esm2020/index.mjs",
                             "inject": false,
                             "bundleName": "external-module"
                         }]

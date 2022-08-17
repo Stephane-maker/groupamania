@@ -21,5 +21,6 @@ export class GroupamaniaComponent implements OnInit {
 
     this.Posts$ = this.groupamaniaService.getAllPost();
 
+
  }
 }
