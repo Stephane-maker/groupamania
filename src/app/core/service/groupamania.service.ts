@@ -1,9 +1,9 @@
 import { Observable, throwError, catchError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { GroupamaniaGeneralPost } from "./../models/groupamania-post.model";
-import { GroupamniaServiceConnexionUser } from "./../models/user-connexion.model";
-import { UserToken } from "./../models/user-token.model";
+import { GroupamaniaGeneralPost } from "../models/groupamania-post.model";
+import { GroupamniaServiceConnexionUser } from "../models/user-connexion.model";
+import { UserToken } from "../models/user-token.model";
 
 
 @Injectable({
@@ -32,6 +32,13 @@ export class GroupamaniaService  {
 
     ConnexionUser(email: string, password: string ): Observable<UserToken>{
     return this.http.post<UserToken>("http://localhost:3000/api/auth/login", { email, password })
+      .pipe(
+        catchError(this.handleError)
+    )
+    }
+
+  createPost( post: any, ImageUrl: any, userIdPoster: any ): Observable<GroupamaniaGeneralPost>{
+    return this.http.post<GroupamaniaGeneralPost>("http://localhost:3000/api/createdPost", { post,  ImageUrl, userIdPoster })
       .pipe(
         catchError(this.handleError)
     )
