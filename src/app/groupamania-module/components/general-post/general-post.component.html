@@ -1,0 +1,19 @@
+<div class="container">
+    <mat-card>
+        <div class="container-card">
+            <img mat-card-image *ngIf="post.ImageUrl" [src]="post.ImageUrl" [alt]="">
+            <mat-card-content>
+                {{post.post}}
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster">Modifier le post</button>
+                <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster">Supprimer le post</button>
+                <button mat-raised-button color="primary" type="submit" (click)="onPostById()">Voir le post</button>
+            </mat-card-actions>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Commencer un Post">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Poster</button>
+        </div>
+    </mat-card>
+</div>
