@@ -1,3 +1,4 @@
+import { AdminPageComponent } from './components/admin/admin-page-user/admin-page.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,15 +23,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { AdminPageComponent } from './components/admin/admin-page/admin-page.component';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { AdminDataComponent } from './components/admin/admin-data/admin-data.component';
+
 import { AffichageDataAdminComponent } from './components/admin/affichage-data-admin/affichage-data-admin.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatExpansionModule} from '@angular/material/expansion';
 
-
-
+import { AdminPagePosteComponent } from './components/admin/admin-page-poste/admin-page-poste.component';
+import { AdminAllPostComponent } from './components/admin/admin-data-post/admin-all-post.component';
+import { AdminDataComponent } from './components/admin/admin-data-user/admin-data.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ import { AffichageDataAdminComponent } from './components/admin/affichage-data-a
     NavBarComponent,
     AdminPageComponent,
     AdminDataComponent,
-    AffichageDataAdminComponent
+    AffichageDataAdminComponent,
+    AdminAllPostComponent,
+    AdminPagePosteComponent
   ],
   imports: [
     CommonModule,
@@ -62,14 +68,18 @@ import { AffichageDataAdminComponent } from './components/admin/affichage-data-a
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FontAwesomeModule,
+    MatExpansionModule
   ],
   exports: [
     GeneralPostComponent,
     GroupamaniaComponent,
     OnePostComponent,
     PageAccueilleComponent,
-    PageProfilComponent
+    PageProfilComponent,
+    FontAwesomeModule,
+    MatExpansionModule
   ]
 })
 export class GroupamaniaModuleModule { }
