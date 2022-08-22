@@ -17,16 +17,12 @@ import { AdminServiceService } from 'src/app/core/service/admin-service.service'
 })
 export class AdminPageComponent implements OnInit  {
 
- @Input() dataAdmin!: adminModels;
-
+  @Input() dataAdmin!: adminModels;
 
   constructor() { }
 
   ngOnInit(): void {
-
-    console.log(this.dataAdmin)
   }
-
 
 
 
