@@ -10,14 +10,12 @@ import { AdminServiceService } from 'src/app/core/service/admin-service.service'
   styleUrls: ['./admin-data.component.scss']
 })
 export class AdminDataComponent implements OnInit {
-AdminData$!: Observable<adminModels[]>
+  AdminData$!: Observable<adminModels[]>
+
 
   constructor(private adminServiceService: AdminServiceService ){}
   ngOnInit(): void {
-
     this.AdminData$ = this.adminServiceService.getAllUser();
-
-
- }
- }
+  }
+}
 

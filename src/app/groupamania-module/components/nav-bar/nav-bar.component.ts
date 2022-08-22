@@ -26,7 +26,7 @@ export class NavBarComponent {
   }
   onDeconnexion() {
     localStorage.clear()
-     localStorage.removeItem("access_token")
+    localStorage.removeItem("access_token")
 
     if (!localStorage.getItem("ID") && !localStorage.getItem("access_token")) {
       this.router.navigateByUrl("/")
