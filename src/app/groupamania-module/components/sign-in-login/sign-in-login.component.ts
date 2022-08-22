@@ -19,11 +19,7 @@ export class SignInLoginComponent {
     //Add 'implements OnInit' to the class.
 
   }
-
   hasUnitNumber = false;
-
-
-
   constructor(private fb: FormBuilder, private gs: GroupamaniaService,private router:Router) { }
 
   onConnexion() {
@@ -34,6 +30,12 @@ export class SignInLoginComponent {
       if (localStorage.getItem("access_token") === data.token && localStorage.getItem("ID") === data.userId) {
         this.router.navigateByUrl("accueille");
       }
+      if (data.adminRight === true) {
+        this.router.navigateByUrl("admin_page")
+      } else {
+        this.router.navigateByUrl("accueille")
+      }
+
 
     })
   }

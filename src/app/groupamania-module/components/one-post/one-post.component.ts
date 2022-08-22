@@ -18,7 +18,6 @@ export class OnePostComponent implements OnInit {
     this.IdToPost = document.location.href.split("/")[4];
 
     this.groupamaniaService.getPostById(this.IdToPost).subscribe(data => {
-      console.log(data)
       this.thePost = data.post
       this.userIdPoster = data.userIdPoster
     })

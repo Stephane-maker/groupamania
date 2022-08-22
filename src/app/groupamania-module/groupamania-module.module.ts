@@ -8,6 +8,7 @@ import { OnePostComponent } from './components/one-post/one-post.component';
 import { PageAccueilleComponent } from './components/page-accueille/page-accueille.component';
 import { PageProfilComponent } from './components/page-profil/page-profil.component';
 import { SignInLoginComponent } from './components/sign-in-login/sign-in-login.component';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,6 +22,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AdminPageComponent } from './components/admin/admin-page/admin-page.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { AdminDataComponent } from './components/admin/admin-data/admin-data.component';
+import { AffichageDataAdminComponent } from './components/admin/affichage-data-admin/affichage-data-admin.component';
 
 
 
@@ -33,7 +40,10 @@ import { MatListModule } from '@angular/material/list';
     PageAccueilleComponent,
     PageProfilComponent,
     SignInLoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    AdminPageComponent,
+    AdminDataComponent,
+    AffichageDataAdminComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +59,10 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     GeneralPostComponent,

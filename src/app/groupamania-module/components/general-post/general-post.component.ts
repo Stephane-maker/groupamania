@@ -1,12 +1,6 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GroupamaniaService } from '../../../core/service/groupamania.service';
 import { Router } from '@angular/router';
-
 import { Component, Input, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from '../../../core/models/groupamania-post.model';
-import { UserToken } from '../../../core/models/user-token.model';
-import { LocalizedString, Token } from '@angular/compiler';
-
 
 @Component({
   selector: 'app-general-post',
