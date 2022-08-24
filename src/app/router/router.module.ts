@@ -8,7 +8,7 @@ import { RouterModule , Routes , Router } from '@angular/router';
 import { PageAccueilleComponent } from '../groupamania-module/components/page-accueille/page-accueille.component';
 import { PageProfilComponent } from '../groupamania-module/components/page-profil/page-profil.component';
 import { SignInLoginComponent } from '../groupamania-module/components/sign-in-login/sign-in-login.component';
-import { AffichageDataAdminComponent } from '../groupamania-module/components/admin/affichage-data-admin/affichage-data-admin.component';
+// import { AffichageDataAdminComponent } from '../groupamania-module/components/admin/affichage-data-admin/affichage-data-admin.component';
 
 
 
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'profil', component: PageProfilComponent },
   { path: "", component: SignInLoginComponent },
   { path: 'accueille/:id', component: OnePostComponent },
-  { path: "admin_page" , component: AffichageDataAdminComponent},
+  // { path: "admin_page" , component: AffichageDataAdminComponent},
   { path: "**" , component: PageNotFoundComponent}
 ];
 

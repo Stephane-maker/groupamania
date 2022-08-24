@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Admin folder
+src/app/groupamania-module/components/admin/

@@ -37,8 +37,8 @@ export class GroupamaniaService  {
     )
     }
 
-  createPost( post: any, ImageUrl: any, userIdPoster: any ): Observable<GroupamaniaGeneralPost>{
-    return this.http.post<GroupamaniaGeneralPost>("http://localhost:3000/api/createdPost", { post,  ImageUrl, userIdPoster })
+  createPost( ImageUrl: any): Observable<GroupamaniaGeneralPost>{
+    return this.http.post<GroupamaniaGeneralPost>("http://localhost:3000/api/createdPost" , {   ImageUrl})
       .pipe(
         catchError(this.handleError)
     )

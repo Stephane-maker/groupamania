@@ -18,6 +18,7 @@ export class GeneralPostComponent implements OnInit {
   ngOnInit(): void {
     this.tokenLocalStorage = localStorage.getItem("access_token");
     this.userId = localStorage.getItem("ID");
+    console.log(this.post)
   }
 
 
