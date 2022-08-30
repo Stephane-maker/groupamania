@@ -1,0 +1,23 @@
+.mat-card {
+    width: 100%;
+    height: auto;
+    margin-top: 5%;
+}
+
+input {
+    font-size: 15px;
+}
+
+.container {
+    &-formulaire {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
