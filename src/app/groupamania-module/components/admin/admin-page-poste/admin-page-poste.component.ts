@@ -17,6 +17,6 @@ export class AdminPagePosteComponent implements OnInit {
   ngOnInit(): void {
   }
   onclick() {
-    alert("Vous êtes sur le point de supprimer ce poste êtes vous vraiment sur de vouloir supprimer ce post de facon definitive ? <button>hey</button>")
+    alert("Vous êtes sur le point de supprimer ce poste êtes vous vraiment sur de vouloir supprimer ce post de facon definitive ?")
   }
 }
