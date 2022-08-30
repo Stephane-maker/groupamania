@@ -1,0 +1,17 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Groupamania</mat-card-title>
+            <mat-card-subtitle>Connecter-vous ou crée votre compte</mat-card-subtitle>
+        </mat-card-header>
+        <img matCardImage [src]="imageUrl">
+        <div class="redirecting">
+            <mat-card-content>
+                Connexion : <a (click)="onConnexion()">Connexion</a>
+            </mat-card-content>
+            <mat-card-content>
+                Inscription : <a (click)="onRegistration()">Inscription</a>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>
