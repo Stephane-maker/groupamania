@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,6 @@ import { GroupamaniaComponent } from './components/groupamania/groupamania.compo
 import { OnePostComponent } from './components/one-post/one-post.component';
 import { PageAccueilleComponent } from './components/page-accueille/page-accueille.component';
 import { PageProfilComponent } from './components/page-profil/page-profil.component';
-import { SignInLoginComponent } from './components/sign-in-login/sign-in-login.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +32,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { InputNewPostComponent } from './components/input-new-post/input-new-post.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+
+import { SignInLoginComponent } from './components/signin-signup/connexion-user/sign-in-login.component';
+import { RedirectionPageComponent } from './components/signin-signup/redirection-page/redirection-page.component';
+
+import { RegistrationUserComponent } from './components/signin-signup/registration-user/registration-user.component';
 // import { AdminPageComponent } from './components/admin/admin-page-user/admin-page.component';
 // import { AffichageDataAdminComponent } from './components/admin/affichage-data-admin/affichage-data-admin.component';
 // import { AdminPagePosteComponent } from './components/admin/admin-page-poste/admin-page-poste.component';
@@ -48,6 +53,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     SignInLoginComponent,
     NavBarComponent,
     InputNewPostComponent,
+    RedirectionPageComponent,
+    RegistrationUserComponent
     // AdminPageComponent,
     // AdminDataComponent,
     // AffichageDataAdminComponent,
@@ -74,7 +81,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MatSortModule,
     FontAwesomeModule,
     MatExpansionModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    HttpClientModule
   ],
   exports: [
     GeneralPostComponent,

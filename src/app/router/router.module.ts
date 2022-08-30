@@ -1,3 +1,6 @@
+import { RegistrationUserComponent } from './../groupamania-module/components/signin-signup/registration-user/registration-user.component';
+
+
 import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 
 import { OnePostComponent } from '../groupamania-module/components/one-post/one-post.component';
@@ -7,7 +10,12 @@ import { RouterModule , Routes , Router } from '@angular/router';
 
 import { PageAccueilleComponent } from '../groupamania-module/components/page-accueille/page-accueille.component';
 import { PageProfilComponent } from '../groupamania-module/components/page-profil/page-profil.component';
-import { SignInLoginComponent } from '../groupamania-module/components/sign-in-login/sign-in-login.component';
+
+import { RedirectionPageComponent } from '../groupamania-module/components/signin-signup/redirection-page/redirection-page.component';
+import { SignInLoginComponent } from '../groupamania-module/components/signin-signup/connexion-user/sign-in-login.component';
+
+
+
 // import { AffichageDataAdminComponent } from '../groupamania-module/components/admin/affichage-data-admin/affichage-data-admin.component';
 
 
@@ -16,7 +24,9 @@ import { SignInLoginComponent } from '../groupamania-module/components/sign-in-l
 const routes: Routes = [
   { path: 'accueille', component: PageAccueilleComponent },
   { path: 'profil', component: PageProfilComponent },
-  { path: "", component: SignInLoginComponent },
+  { path: "", component: RedirectionPageComponent },
+  { path: "registration", component: RegistrationUserComponent },
+  {path:"connection", component: SignInLoginComponent},
   { path: 'accueille/:id', component: OnePostComponent },
   // { path: "admin_page" , component: AffichageDataAdminComponent},
   { path: "**" , component: PageNotFoundComponent}

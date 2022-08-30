@@ -1,5 +1,7 @@
+import { CreatePost } from './../../../core/models/create-post.model';
+import { GroupamaniaGeneralPost } from './../../../core/models/groupamania-post.model';
 import { GroupamaniaService } from 'src/app/core/service/groupamania.service';
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,35 +11,44 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./input-new-post.component.scss']
 })
 export class InputNewPostComponent {
-
+   @Input() post!: GroupamaniaGeneralPost;
   title = 'fileUpload';
   images!: "";
   multipleImages = [];
 
   addressForm = this.fb.group({
-    firstName: [null, Validators.required],
+    firstName: ["", Validators.required],
 
   });
 
-  hasUnitNumber = false;
 
   constructor(private fb: FormBuilder, private gs: GroupamaniaService, private http: HttpClient) { }
 
   onSubmit(): void {
-    console.log(this.images)
-   const formdata = new FormData()
-    formdata.append('image', this.images)
 
-     this.http.post("http://localhost:3000/api/createdPost" ,formdata).subscribe((data) => {
+    console.log(this.images)
+    const formdata = new FormData()
+    formdata.append('image/post', this.images)
+
+    console.log(formdata)
+    this.gs.PostImage(formdata).subscribe((data) => {
+
       console.log(data)
     }, (err) => {
       console.log(err)
-    } )
+    })
+
+    // let testArray = [{ "test": test }]
+    //   this.gs.CreatePost(JSON.stringify(this.addressForm.value.firstName)).subscribe((data) => {
+    //   console.log(data)
+    // })
+    // this.gs.CreatePost(JSON.stringify(this.addressForm.value.firstName)).subscribe((data) => {
+    //   console.log(data)
+    // })
 
   }
-
   fileChoosen(event: any) {
-      const file = event.target.files[0];
+    const file = event.target.files[0];
     this.images = file
   }
 }

@@ -1,9 +1,13 @@
+import { CreatePost } from './../models/create-post.model';
 import { Observable, throwError, catchError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from "../models/groupamania-post.model";
 import { GroupamniaServiceConnexionUser } from "../models/user-connexion.model";
 import { UserToken } from "../models/user-token.model";
+
+import { FileOrArrayFile } from '@angular-material-components/file-input';
+
 
 
 @Injectable({
@@ -35,14 +39,22 @@ export class GroupamaniaService  {
       .pipe(
         catchError(this.handleError)
     )
-    }
+  }
 
-  createPost( ImageUrl: any): Observable<GroupamaniaGeneralPost>{
-    return this.http.post<GroupamaniaGeneralPost>("http://localhost:3000/api/createdPost" , {   ImageUrl})
+
+  PostImage(ImageUrl: any): Observable<ArrayBuffer>{
+
+    return this.http.post<ArrayBuffer>("http://localhost:3000/api/createdPost", ImageUrl )
       .pipe(
         catchError(this.handleError)
     )
   }
+//  CreatePost(post: string): Observable<CreatePost>{
+//     return this.http.post<CreatePost>("http://localhost:3000/api/createdPost",{ post })
+//       .pipe(
+//         catchError(this.handleError)
+//     )
+//   }
 
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {
