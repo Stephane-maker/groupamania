@@ -6,7 +6,6 @@ import { GroupamaniaGeneralPost } from "../models/groupamania-post.model";
 import { GroupamniaServiceConnexionUser } from "../models/user-connexion.model";
 import { UserToken } from "../models/user-token.model";
 
-import { FileOrArrayFile } from '@angular-material-components/file-input';
 
 
 
@@ -15,8 +14,6 @@ import { FileOrArrayFile } from '@angular-material-components/file-input';
 })
 export class GroupamaniaService  {
   constructor(private http: HttpClient) { }
-
-
 
   getAllPost(): Observable<GroupamaniaGeneralPost[]>{
     return this.http.get<GroupamaniaGeneralPost[]>('http://localhost:3000/api/allPost');
@@ -42,20 +39,29 @@ export class GroupamaniaService  {
   }
 
 
-  PostImage(ImageUrl: any): Observable<ArrayBuffer>{
-
-    return this.http.post<ArrayBuffer>("http://localhost:3000/api/createdPost", ImageUrl )
+  PostImage(formPost: any): Observable<GroupamaniaGeneralPost>{
+    return this.http.post<any>("http://localhost:3000/api/createdPost", formPost )
       .pipe(
         catchError(this.handleError)
     )
   }
-//  CreatePost(post: string): Observable<CreatePost>{
-//     return this.http.post<CreatePost>("http://localhost:3000/api/createdPost",{ post })
-//       .pipe(
-//         catchError(this.handleError)
-//     )
-//   }
 
+  DeletePost(id: string) {
+    console.log(id)
+  const url = "http://localhost:3000/api/deletePost"; // DELETE api/heroes/42
+  return this.http.post(url + "/" + id, {"id":id})
+    .pipe(
+        catchError(this.handleError)
+    )
+}
+//   deleteHero(id: any) {
+//   console.log(id)
+//   const url = "http://localhost:3000/api/deletePost"; // DELETE api/heroes/42
+//   return this.http.delete(url + "/" + id)
+//     .pipe(
+//        catchError(this.handleError)
+//     );
+// }
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {
     // A client-side or network error occurred. Handle it accordingly.

@@ -27,7 +27,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { InputNewPostComponent } from './components/input-new-post/input-new-post.component';
@@ -79,6 +79,7 @@ import { RegistrationUserComponent } from './components/signin-signup/registrati
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
     FontAwesomeModule,
     MatExpansionModule,
     NgxMatFileInputModule,
