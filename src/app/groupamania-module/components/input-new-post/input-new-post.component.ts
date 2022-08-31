@@ -28,11 +28,14 @@ export class InputNewPostComponent {
 
     console.log(this.images)
     const formdata = new FormData()
-    formdata.append('image/post', this.images)
+    formdata.append('image', this.images)
+    if (this.addressForm.value.firstName != null) {
+       formdata.append('post', this.addressForm.value.firstName)
+    }
+
 
     console.log(formdata)
     this.gs.PostImage(formdata).subscribe((data) => {
-
       console.log(data)
     }, (err) => {
       console.log(err)
@@ -48,7 +51,10 @@ export class InputNewPostComponent {
 
   }
   fileChoosen(event: any) {
-    const file = event.target.files[0];
-    this.images = file
+    console.log(event.target.value)
+    if (event.target.value) {
+      const file = event.target.files[0];
+      this.images = file
+    }
   }
 }

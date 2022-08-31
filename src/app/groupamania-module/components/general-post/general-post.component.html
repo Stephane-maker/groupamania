@@ -7,7 +7,10 @@
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster">Modifier le post</button>
-                <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster">Supprimer le post</button>
+                <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster" (click)="onDeletePost()">Supprimer le post</button>
+                <div *ngIf="actionButtonDelete != false">
+                    Etes-vous sur de vouloir supprime ce post cette action est irremediable: <button (click)="onConfirmaDelete(this.post._id)">Delete</button> | <button (click)="onStopDelete()">annuler</button>
+                </div>
                 <button mat-raised-button color="primary" type="submit" (click)="onPostById()">Voir le post</button>
             </mat-card-actions>
             <mat-form-field class="full-width">
@@ -18,5 +21,6 @@
                 <button mat-raised-button color="primary" type="submit">Poster</button>
             </mat-card-actions>
         </div>
+
     </mat-card>
 </div>
