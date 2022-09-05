@@ -24,12 +24,15 @@ export class RegistrationUserComponent {
   constructor(private fb: FormBuilder, private gs : GroupamaniaService, private router: Router) {}
 
   onSubmit(): void {
+
+
     if (this.addressForm.value.firstName != null && this.addressForm.value.lastName != null && this.addressForm.value.email != null && this.addressForm.value.confirmEmail != null && this.addressForm.value.password != null && this.addressForm.value.confirmPassword != null && this.addressForm.value.address != null && this.addressForm.value.city != null) {
       if (this.addressForm.value.email === this.addressForm.value.confirmEmail) {
         if (this.addressForm.value.password === this.addressForm.value.confirmPassword) {
           console.log("password ok")
           this.gs.InscriptionUser(this.addressForm.value.email, this.addressForm.value.password).subscribe((data) => {
             console.log(data)
+            this.router.navigateByUrl("/")
           }, (err) => {
             console.log(err)
           })

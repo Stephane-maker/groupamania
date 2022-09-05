@@ -25,15 +25,11 @@ export class SignInLoginComponent implements OnInit{
   onConnexion() {
     this.gs.ConnexionUser(this.connexionForm.value.email, this.connexionForm.value.password).subscribe((data) => {
       localStorage.setItem("access_token", data.token);
-       localStorage.setItem("ID", data.userId);
-      console.log(localStorage.getItem("access_token"))
+      localStorage.setItem("ID", data.userId);
+      localStorage.setItem("adminRight", JSON.stringify(data.adminRight))
+
       if (localStorage.getItem("access_token") === data.token && localStorage.getItem("ID") === data.userId) {
-        this.router.navigateByUrl("accueille");
-      }
-      if (data.adminRight === true) {
-        this.router.navigateByUrl("admin_page")
-      } else {
-        this.router.navigateByUrl("accueille")
+        this.router.navigateByUrl("groupamania/accueille");
       }
     })
   }

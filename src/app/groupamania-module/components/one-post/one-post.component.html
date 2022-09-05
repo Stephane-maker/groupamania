@@ -3,7 +3,7 @@
 <div class="container">
     <mat-card>
         <div class="container-card">
-            <img mat-card-image [src]="" [alt]="">
+            <img *ngIf="this.ImageUrl" mat-card-image [src]="this.ImageUrl" [alt]="">
             <mat-card-content>
                 {{this.thePost}}
             </mat-card-content>

@@ -46,22 +46,23 @@ export class GroupamaniaService  {
     )
   }
 
-  DeletePost(id: string) {
-    console.log(id)
-  const url = "http://localhost:3000/api/deletePost"; // DELETE api/heroes/42
-  return this.http.post(url + "/" + id, {"id":id})
-    .pipe(
+  ModifyPost(id: string, formPost: any): Observable<GroupamaniaGeneralPost>{
+      console.log(id)
+    return this.http.post<any>(`http://localhost:3000/api/modifyPost/${id}`, formPost )
+      .pipe(
         catchError(this.handleError)
     )
+  }
+
+
+ deletePost(id: string, ImageUrl: string): Observable<unknown> {
+   const url = `http://localhost:3000/api/deletePost/${id}` ; // DELETE api/heroes/42
+  return this.http.post(url, {"id": id , "ImageUrl": ImageUrl})
+    .pipe(
+      catchError(this.handleError)
+    );
 }
-//   deleteHero(id: any) {
-//   console.log(id)
-//   const url = "http://localhost:3000/api/deletePost"; // DELETE api/heroes/42
-//   return this.http.delete(url + "/" + id)
-//     .pipe(
-//        catchError(this.handleError)
-//     );
-// }
+
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {
     // A client-side or network error occurred. Handle it accordingly.

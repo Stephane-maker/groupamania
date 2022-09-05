@@ -1,4 +1,3 @@
-import { CreatePost } from './../../../core/models/create-post.model';
 import { GroupamaniaGeneralPost } from './../../../core/models/groupamania-post.model';
 import { GroupamaniaService } from 'src/app/core/service/groupamania.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -21,35 +20,23 @@ export class InputNewPostComponent {
 
   });
 
-
-  constructor(private fb: FormBuilder, private gs: GroupamaniaService, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private gs: GroupamaniaService) { }
 
   onSubmit(): void {
 
-    console.log(this.images)
     const formdata = new FormData()
     formdata.append('image', this.images)
     if (this.addressForm.value.firstName != null) {
        formdata.append('post', this.addressForm.value.firstName)
     }
-
-
-    console.log(formdata)
     this.gs.PostImage(formdata).subscribe((data) => {
       console.log(data)
+        window.location.reload();
     }, (err) => {
       console.log(err)
     })
 
-    // let testArray = [{ "test": test }]
-    //   this.gs.CreatePost(JSON.stringify(this.addressForm.value.firstName)).subscribe((data) => {
-    //   console.log(data)
-    // })
-    // this.gs.CreatePost(JSON.stringify(this.addressForm.value.firstName)).subscribe((data) => {
-    //   console.log(data)
-    // })
-
-  }
+}
   fileChoosen(event: any) {
     console.log(event.target.value)
     if (event.target.value) {
