@@ -14,3 +14,15 @@
         align-items: center;
     }
 }
+
+.container_modify {
+    display: flex;
+    & * {
+        margin: 1% 1% 1% 1%;
+    }
+}
+
+.cancel {
+    font-size: 1.5rem;
+    cursor: pointer;
+}

@@ -19,10 +19,10 @@ export class NavBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
   onAccueille() {
-    this.router.navigateByUrl("accueille")
+    this.router.navigateByUrl("groupamania/accueille")
   }
   onProfil() {
-    this.router.navigateByUrl("profil")
+    this.router.navigateByUrl("groupamania/profil")
   }
   onDeconnexion() {
     localStorage.clear()

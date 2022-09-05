@@ -3,32 +3,18 @@ import { RegistrationUserComponent } from './../groupamania-module/components/si
 
 import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 
-import { OnePostComponent } from '../groupamania-module/components/one-post/one-post.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule , Routes , Router } from '@angular/router';
 
-import { PageAccueilleComponent } from '../groupamania-module/components/page-accueille/page-accueille.component';
-import { PageProfilComponent } from '../groupamania-module/components/page-profil/page-profil.component';
-
 import { RedirectionPageComponent } from '../groupamania-module/components/signin-signup/redirection-page/redirection-page.component';
 import { SignInLoginComponent } from '../groupamania-module/components/signin-signup/connexion-user/sign-in-login.component';
 
-
-
-// import { AffichageDataAdminComponent } from '../groupamania-module/components/admin/affichage-data-admin/affichage-data-admin.component';
-
-
-
-
 const routes: Routes = [
-  { path: 'accueille', component: PageAccueilleComponent },
-  { path: 'profil', component: PageProfilComponent },
+  { path: "groupamania", loadChildren: () => import("../groupamania-module/groupamania-router/groupamania-router.module").then(m => m.GroupamaniaRouterModule) },
   { path: "", component: RedirectionPageComponent },
   { path: "registration", component: RegistrationUserComponent },
   {path:"connection", component: SignInLoginComponent},
-  { path: 'accueille/:id', component: OnePostComponent },
-  // { path: "admin_page" , component: AffichageDataAdminComponent},
   { path: "**" , component: PageNotFoundComponent}
 ];
 

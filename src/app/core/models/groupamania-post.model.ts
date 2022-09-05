@@ -9,7 +9,7 @@ export class GroupamaniaGeneralPost {
     // public LastName: string,
     // public PostGroupamania: string,
     public ImageUrl: string,
-    public userIdPoster: string,
+    public userIdPoster: string
   ) {
 
   }

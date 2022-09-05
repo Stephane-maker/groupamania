@@ -1,15 +1,12 @@
 import { GroupamaniaModuleModule } from './groupamania-module/groupamania-module.module';
 import { CoreModule } from './core/core.module';
 
-
-
 import { AppRoutingModule } from './router/router.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -18,11 +15,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
-
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     CoreModule,
@@ -33,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
@@ -44,11 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
       },
     })
   ],
-  providers: [
-  ],
   bootstrap: [AppComponent]
 })
-
 
 export class AppModule {
 
