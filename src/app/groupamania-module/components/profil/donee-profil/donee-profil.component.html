@@ -1,5 +1,3 @@
-<app-nav-bar></app-nav-bar>
-<div>
-    <app-input-new-post></app-input-new-post>
-</div>
+<!-- <app-nav-bar></app-nav-bar> -->
+
 <app-general-post *ngFor="let Post of Posts$ | async" [post]="Post"></app-general-post>

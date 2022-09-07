@@ -11,7 +11,7 @@ import { GeneralPostComponent } from './components/general-post/general-post.com
 import { GroupamaniaComponent } from './components/groupamania/groupamania.component';
 import { OnePostComponent } from './components/one-post/one-post.component';
 import { PageAccueilleComponent } from './components/page-accueille/page-accueille.component';
-import { PageProfilComponent } from './components/page-profil/page-profil.component';
+import { PageProfilComponent } from './components/profil/page-profil/page-profil.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -25,6 +25,8 @@ import { RedirectionPageComponent } from './components/signin-signup/redirection
 
 
 import { RegistrationUserComponent } from './components/signin-signup/registration-user/registration-user.component';
+import { DoneeProfilComponent } from './components/profil/donee-profil/donee-profil.component';
+import { AffichageProfilComponent } from './components/profil/affichage-profil/affichage-profil.component';
 @NgModule({
   declarations: [
     GeneralPostComponent,
@@ -36,7 +38,9 @@ import { RegistrationUserComponent } from './components/signin-signup/registrati
     NavBarComponent,
     InputNewPostComponent,
     RedirectionPageComponent,
-    RegistrationUserComponent
+    RegistrationUserComponent,
+    DoneeProfilComponent,
+    AffichageProfilComponent
   ],
   imports: [
     CommonModule,
