@@ -17,5 +17,5 @@ export class GroupamaniaComponent implements OnInit {
   constructor(private groupamaniaService: GroupamaniaService ){}
   ngOnInit(): void {
     this.Posts$ = this.groupamaniaService.getAllPost();
- }
+  }
 }

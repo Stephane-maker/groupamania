@@ -21,6 +21,7 @@ export class GeneralPostComponent implements OnInit {
   actionModify!: boolean;
   localStorageAdminRightParse!: boolean;
   images!: any;
+  test!: any
 
   ModifyInput!: FormGroup;
 
@@ -28,7 +29,6 @@ export class GeneralPostComponent implements OnInit {
   constructor(private router: Router, private gs : GroupamaniaService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-
     this.ModifyInput = this.fb.group({
       textModify: [null, Validators.required]
     });
@@ -45,7 +45,6 @@ export class GeneralPostComponent implements OnInit {
 
   onPostById() {
     this.router.navigateByUrl(`groupamania/accueille/post/${this.post._id}`);
-    console.log(this.post)
     return this.post._id
   }
   onDeletePost() {
@@ -56,7 +55,7 @@ export class GeneralPostComponent implements OnInit {
   }
   onConfirmaDelete(id:any) {
     console.log(id)
-    this.gs.deletePost(id , this.post.ImageUrl).subscribe((data) => {
+    this.gs.deletePost(id).subscribe((data) => {
       console.log(data)
       window.location.reload();
     }, (err) => {

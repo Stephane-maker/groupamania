@@ -20,7 +20,7 @@ export class GroupamaniaService  {
   }
 
   getPostById(_id: string): Observable<GroupamaniaGeneralPost>{
-    console.log(_id)
+
     return this.http.get<GroupamaniaGeneralPost>(`http://localhost:3000/api/allPost/${_id}`);
   }
 
@@ -47,21 +47,27 @@ export class GroupamaniaService  {
   }
 
   ModifyPost(id: string, formPost: any): Observable<GroupamaniaGeneralPost>{
-      console.log(id)
-    return this.http.post<any>(`http://localhost:3000/api/modifyPost/${id}`, formPost )
+    return this.http.put<any>(`http://localhost:3000/api/modifyPost/${id}`, formPost )
       .pipe(
         catchError(this.handleError)
     )
   }
 
 
- deletePost(id: string, ImageUrl: string): Observable<unknown> {
+deletePost(id: string): Observable<unknown> {
    const url = `http://localhost:3000/api/deletePost/${id}` ; // DELETE api/heroes/42
-  return this.http.post(url, {"id": id , "ImageUrl": ImageUrl})
+  return this.http.delete(url)
     .pipe(
       catchError(this.handleError)
     );
-}
+ }
+
+  UserPost(): Observable<GroupamaniaGeneralPost[]>{
+    return this.http.get<GroupamaniaGeneralPost[]>(`http://localhost:3000/api/userPost` )
+      .pipe(
+        catchError(this.handleError)
+    )
+  }
 
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {

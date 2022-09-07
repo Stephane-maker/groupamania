@@ -1,5 +1,7 @@
+import { AffichageProfilComponent } from './../components/profil/affichage-profil/affichage-profil.component';
+import { PageProfilComponent } from './../components/profil/page-profil/page-profil.component';
 import { OnePostComponent } from './../components/one-post/one-post.component';
-import { PageProfilComponent } from './../components/page-profil/page-profil.component';
+
 import { PageAccueilleComponent } from './../components/page-accueille/page-accueille.component';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +13,7 @@ import { CommonModule } from '@angular/common';
 const routes: Routes = [
   { path: 'accueille', component: PageAccueilleComponent },
   { path: 'accueille/post/:id', component: OnePostComponent },
-  { path: 'profil', component: PageProfilComponent }
+  { path: 'profil', component: AffichageProfilComponent }
 ]
 @NgModule({
   declarations: [],
