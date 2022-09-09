@@ -1,44 +1,58 @@
-<div class="container">
+<div class="container" *ngIf="this.post.post">
     <mat-card>
         <div class="container-card">
             <img *ngIf="post.ImageUrl" [src]="post.ImageUrl" [alt]="">
             <mat-card-content>
                 {{post.post}}
             </mat-card-content>
+            <mat-card-content>
+                crée le : {{post.date}}
+            </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster || this.localStorageAdminRightParse === true" (click)="onModify()">Modifier le post</button>
                 <button mat-raised-button color="primary" type="submit" *ngIf="this.userId === this.post.userIdPoster || this.localStorageAdminRightParse === true" (click)="onDeletePost()">Supprimer le post</button>
-                <div *ngIf="actionButtonDelete != false"> Etes-vous sur de vouloir supprime ce post cette action est irremediable: <button (click)="onConfirmaDelete(this.post._id)">Delete</button> | <button (click)="onStopDelete()">annuler</button>
-                </div>
-
                 <button mat-raised-button color="primary" type="submit" (click)="onPostById()">Voir le post</button>
             </mat-card-actions>
+            <mat-card-actions>
+                <div class="like">
+                    <fa-icon (click)="enableDisableRule()" [ngClass]="{'green' : toggle , 'red': !toggle }" [icon]="faThumbsUp"></fa-icon>
+                    <mat-card-content>
+                        {{this.post.nbrLike}}
+                    </mat-card-content>
+                </div>
+            </mat-card-actions>
+            <div class="warning" *ngIf="actionButtonDelete != false">
+                <p> Etes-vous sur de vouloir supprime ce post cette action est irremediable:</p>
+                <div class="cancel_valid">
+                    <fa-icon (click)="onStopDelete()" [icon]="faXmark"></fa-icon>
+                    <fa-icon (click)="onConfirmaDelete(this.post._id)" [icon]="faTrash"></fa-icon>
+                </div>
+            </div>
+
             <div class="container_modify" *ngIf="this.actionModify === true">
                 <form [formGroup]="ModifyInput" novalidate>
                     <mat-form-field>
                         <div>
-                            <input matInput placeholder="modifier votre post" type="text" name="" id="" formControlName="textModify">
-                            <mat-error *ngIf="ModifyInput.controls['textModify'].hasError('required')">
-                                Post is <strong>required</strong>
-                            </mat-error>
+                            <input matInput placeholder="modifier votre post" type="text" name="" id="" formControlName="textModify" aria-label="entrer un nouveau poste">
                         </div>
-
                     </mat-form-field>
                     <div>
-                        <input type="file" (change)="fileChoosen($event)">
+                        <input type="file" (change)="fileChoosen($event)" aria-label="choisir une image">
                     </div>
                     <button mat-raised-button (click)="onPostModify()">Submit</button>
                 </form>
                 <fa-icon class="cancel" (click)="onStopModify()" [icon]="faXmark"></fa-icon>
             </div>
-            <mat-form-field class="full-width">
-                <input matInput placeholder="Commencer un Post">
-            </mat-form-field>
-            <mat-card-actions>
-
-                <button mat-raised-button color="primary" type="submit">Poster</button>
-            </mat-card-actions>
         </div>
+    </mat-card>
+</div>
+<div class="container-card" *ngIf="this.post.message">
+    <mat-card>
 
+        <mat-card-content>
+            {{this.post.message}}
+            <p>n'hesité pas a poster</p>
+            <p *ngIf="messageNoPostProfil === true"><a href="groupamania/accueille">Accueille</a> </p>
+        </mat-card-content>
     </mat-card>
 </div>

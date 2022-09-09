@@ -1,10 +1,10 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { GroupamaniaService } from 'src/app/core/service/groupamania.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { GroupamaniaGeneralPost } from '../../../core/models/groupamania-post.model';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faTrash, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,7 +13,9 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./general-post.component.scss']
 })
 export class GeneralPostComponent implements OnInit {
-   faXmark = faXmark;
+  faTrash = faTrash
+  faXmark = faXmark;
+  faThumbsUp = faThumbsUp;
   tokenLocalStorage!: any;
   localStorageAdminRight!: any;
   userId!: any;
@@ -21,16 +23,18 @@ export class GeneralPostComponent implements OnInit {
   actionModify!: boolean;
   localStorageAdminRightParse!: boolean;
   images!: any;
-  test!: any
-
+  messageNoPostProfil!: boolean;
   ModifyInput!: FormGroup;
+  toggle = true;
+  status = 'Enable';
 
   @Input() post!: GroupamaniaGeneralPost;
   constructor(private router: Router, private gs : GroupamaniaService, private fb: FormBuilder) { }
-
   ngOnInit(): void {
+  this.messageNoPostProfil = false;
+  this.gs.TokenVerif()
     this.ModifyInput = this.fb.group({
-      textModify: [null, Validators.required]
+      textModify: [null]
     });
     this.tokenLocalStorage = localStorage.getItem("access_token");
     this.userId = localStorage.getItem("ID");
@@ -39,9 +43,18 @@ export class GeneralPostComponent implements OnInit {
 
     this.actionButtonDelete = false;
     this.actionModify = false;
-
+    if (window.location.href === "http://localhost:4200/groupamania/profil") {
+      this.messageNoPostProfil = true;
+    }
+    this.post.nbrLike = this.post.like.length
+    if (this.post.like.includes(localStorage.getItem("ID"))) {
+      this.toggle = !this.toggle;
+      this.status = this.toggle ? 'Enable' : 'Disable';
+    } else {
+      this.toggle = this.toggle;
+      this.status = this.toggle ? 'Enable' : 'Disable';
+    }
   }
-
 
   onPostById() {
     this.router.navigateByUrl(`groupamania/accueille/post/${this.post._id}`);
@@ -68,6 +81,23 @@ export class GeneralPostComponent implements OnInit {
   onStopDelete() {
     this.actionButtonDelete = false;
   }
+
+  enableDisableRule() {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
+
+    if (!this.post.like.includes(localStorage.getItem("ID"))) {
+      this.post.nbrLike += 1;
+      this.post.like.push(localStorage.getItem("ID"))
+    } else {
+      this.post.nbrLike -= 1;
+      this.post.like.splice(this.userId)
+    }
+  this.status = this.toggle ? 'Enable' : 'Disable';
+  this.gs.LikePost(this.post._id, this.userId).subscribe((data) => {
+    console.log(data)
+  })
+}
 
   onPostModify(): void {
     const formdata = new FormData()

@@ -14,7 +14,9 @@ export class DoneeProfilComponent implements OnInit {
   constructor(private gs: GroupamaniaService) { }
 
   ngOnInit(): void {
-     this.Posts$ = this.gs.UserPost();
+    this.gs.TokenVerif()
+    this.Posts$ = this.gs.UserPost();
+    console.log(window.location.href)
   }
 
 }

@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./src/app/assets/scss/reset.scss";
+@import "./src/app/assets/scss/variable";
+body {
+    background-color: $secondaire;
+}
+
+.mat-toolbar {
+    background-color: $tertiaire!important;
+}
+
+.mat-card {
+    border: 1.5px solid $tertiaire;
+    background-color: $secondaire!important;
+}
+
+button {
+    background-color: $primaire!important;
+    color: white!important;
+    &:hover {
+        background-color: $tertiaire!important;
+        color: $tertiaire;
+    }
+}

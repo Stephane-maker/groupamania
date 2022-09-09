@@ -1,3 +1,4 @@
+import { faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -11,11 +12,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class NavBarComponent {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  faUser = faUser;
+  faRightFromBracket = faRightFromBracket;
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
   onAccueille() {

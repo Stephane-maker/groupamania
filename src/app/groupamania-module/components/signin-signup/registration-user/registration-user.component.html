@@ -1,95 +1,67 @@
-<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
-    <mat-card class="shipping-card">
-        <mat-card-header>
-            <mat-card-title>Inscription</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="text" placeholder="First name" formControlName="firstName">
-                        <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
-                            First name is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
+<div class="container-formulaire">
+    <form [formGroup]="InscriptionForm" novalidate>
+        <mat-card class="shipping-card">
+            <mat-card-header>
+                <mat-card-title>Connexion</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="email" formControlName="email">
+                            <mat-error *ngIf="InscriptionForm.controls['email'].hasError('required')">
+                                email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="confirm Email" formControlName="confirmEmail">
+                            <mat-error *ngIf="InscriptionForm.controls['confirmEmail'].hasError('required')">
+                                confirm Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="password" type="password" formControlName="password">
+                            <mat-error *ngIf="InscriptionForm.controls['password'].hasError('required')">
+                                password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="confirm Password" type="confirmPassword" formControlName="confirmPassword">
+                            <mat-error *ngIf="InscriptionForm.controls['confirmPassword'].hasError('required')">
+                                confirm Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="first Name" formControlName="firstName">
+                            <mat-error *ngIf="InscriptionForm.controls['firstName'].hasError('required')">
+                                first Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="last Name" formControlName="lastName">
+                            <mat-error *ngIf="InscriptionForm.controls['lastName'].hasError('required')">
+                                last Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
                 </div>
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="text" placeholder="Last name" formControlName="lastName">
-                        <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
-                            Last name is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="email" placeholder="email" formControlName="email">
-                        <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
-                            email <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="password" placeholder="password" formControlName="password">
-                        <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
-                            password is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="email" placeholder="confirm your Email" formControlName="confirmEmail">
-                        <mat-error *ngIf="addressForm.controls['confirmEmail'].hasError('required')">
-                            email <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input matInput type="password" placeholder="confirm your Password" formControlName="confirmPassword">
-                        <mat-error *ngIf="addressForm.controls['confirmPassword'].hasError('required')">
-                            confirmPassword is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <textarea matInput placeholder="Address" formControlName="address"></textarea>
-                        <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
-                            Address is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col">
-                    <mat-form-field class="full-width">
-                        <input type="text" matInput placeholder="City" formControlName="city">
-                        <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
-                            City is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit">Submit</button>
-        </mat-card-actions>
-
-        <mat-card-actions>
-            <a (click)="onBackHome()">retour a l'accueille</a>
-        </mat-card-actions>
-    </mat-card>
-</form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+            </mat-card-actions>
+            <mat-card-actions>
+                <a (click)="onBackHome()">Retour a l'accueille</a>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
