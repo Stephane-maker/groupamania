@@ -16,7 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -33,7 +34,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
@@ -45,7 +45,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     NgxMatFileInputModule,
     FontAwesomeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule
   ]
 })
 export class MatInputModuleModule { }

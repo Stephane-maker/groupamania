@@ -14,8 +14,10 @@ export class GroupamaniaComponent implements OnInit {
 
   Posts$!: Observable<GroupamaniaGeneralPost[]>
 
-  constructor(private groupamaniaService: GroupamaniaService ){}
+  constructor(private gs: GroupamaniaService ){}
   ngOnInit(): void {
-    this.Posts$ = this.groupamaniaService.getAllPost();
+    this.gs.TokenVerif()
+    this.Posts$ = this.gs.getAllPost();
+
   }
 }

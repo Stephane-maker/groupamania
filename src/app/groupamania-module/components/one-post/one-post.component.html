@@ -8,9 +8,36 @@
                 {{this.thePost}}
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit" *ngIf="this.IdUser === this.userIdPoster">Modifier le post</button>
-                <button mat-raised-button color="primary" type="submit" *ngIf="this.IdUser === this.userIdPoster">Supprimer le post</button>
+                <button mat-raised-button color="primary" type="submit" (click)="onModifyPost()" *ngIf="this.IdUser === this.userIdPoster">Modifier le post</button>
+                <button mat-raised-button color="primary" type="submit" (click)="onDeletePost()" *ngIf="this.IdUser === this.userIdPoster">Supprimer le post</button>
+                <button mat-raised-button color="primary" (click)="onBackHome()">Retour a l'accueille</button>
             </mat-card-actions>
+            <div class="warning" *ngIf="actionButtonDelete != false">
+                <p> Etes-vous sur de vouloir supprime ce post cette action est irremediable:</p>
+                <div class="cancel_valid">
+                    <fa-icon (click)="onStopDelete()" [icon]="faXmark"></fa-icon>
+
+                    <fa-icon (click)="onConfirmaDelete()" [icon]="faTrash"></fa-icon>
+                </div>
+            </div>
+
+            <div class="container_modify" *ngIf="this.actionModify != false">
+                <form [formGroup]=" ModifyInput " novalidate>
+                    <mat-form-field>
+                        <div>
+                            <input matInput placeholder="modifier votre post" type="text" name=" " id=" " formControlName="textModify">
+                            <mat-error *ngIf="ModifyInput.controls['textModify'].hasError( 'required') ">
+                                Post is <strong>required</strong>
+                            </mat-error>
+                        </div>
+                    </mat-form-field>
+                    <div>
+                        <input type="file" (change)="fileChoosen($event)">
+                    </div>
+                    <button mat-raised-button (click)="onPostModify() ">Submit</button>
+                </form>
+                <fa-icon class="cancel " (click)="onStopModify()" [icon]="faXmark "></fa-icon>
+            </div>
         </div>
     </mat-card>
 </div>

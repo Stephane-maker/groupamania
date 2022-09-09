@@ -1,17 +1,29 @@
-.sidenav-container {
-    max-height: 20%;
+@import "../../../assets/scss/_variable";
+.example-spacer {
+    flex: 1 1 auto;
 }
 
-.sidenav {
-    width: 200px;
+fa-icon {
+    font-size: 2rem;
+    margin: 0% 1% 0 1%;
+    color: $primaire;
+    cursor: pointer;
+    &:hover {
+        color: $secondaire;
+    }
 }
 
-.sidenav .mat-toolbar {
-    background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-    position: sticky;
+nav {
+    position: fixed;
+    width: 100%;
     top: 0;
-    z-index: 1;
+}
+
+span {
+    color: $primaire;
+    font-size: 2rem;
+    cursor: pointer;
+    &:hover {
+        color: $secondaire;
+    }
 }

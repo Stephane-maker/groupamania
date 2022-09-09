@@ -1,6 +1,4 @@
 import { GroupamaniaGeneralPost } from '../../../../core/models/groupamania-post.model';
-import { observable, Observable } from 'rxjs';
-import { GroupamaniaService } from 'src/app/core/service/groupamania.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 

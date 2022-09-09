@@ -1,4 +1,4 @@
-import { CreatePost } from './../models/create-post.model';
+import { Router } from '@angular/router';
 import { Observable, throwError, catchError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ import { UserToken } from "../models/user-token.model";
   providedIn: 'root'
 })
 export class GroupamaniaService  {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   getAllPost(): Observable<GroupamaniaGeneralPost[]>{
     return this.http.get<GroupamaniaGeneralPost[]>('http://localhost:3000/api/allPost');
@@ -24,8 +24,8 @@ export class GroupamaniaService  {
     return this.http.get<GroupamaniaGeneralPost>(`http://localhost:3000/api/allPost/${_id}`);
   }
 
-  InscriptionUser(email: string, password: string ): Observable<GroupamniaServiceConnexionUser>{
-    return this.http.post<GroupamniaServiceConnexionUser>("http://localhost:3000/api/auth/signup", { email, password })
+  InscriptionUser(email: string, confirmEmail: string, password: string, confirmPassword: string ): Observable<GroupamniaServiceConnexionUser>{
+    return this.http.post<GroupamniaServiceConnexionUser>("http://localhost:3000/api/auth/signup", { email, confirmEmail, password, confirmPassword })
       .pipe(
         catchError(this.handleError)
     )
@@ -47,7 +47,7 @@ export class GroupamaniaService  {
   }
 
   ModifyPost(id: string, formPost: any): Observable<GroupamaniaGeneralPost>{
-    return this.http.put<any>(`http://localhost:3000/api/modifyPost/${id}`, formPost )
+    return this.http.put<GroupamaniaGeneralPost>(`http://localhost:3000/api/modifyPost/${id}`, formPost )
       .pipe(
         catchError(this.handleError)
     )
@@ -60,7 +60,7 @@ deletePost(id: string): Observable<unknown> {
     .pipe(
       catchError(this.handleError)
     );
- }
+  }
 
   UserPost(): Observable<GroupamaniaGeneralPost[]>{
     return this.http.get<GroupamaniaGeneralPost[]>(`http://localhost:3000/api/userPost` )
@@ -69,6 +69,18 @@ deletePost(id: string): Observable<unknown> {
     )
   }
 
+  TokenVerif() {
+    if (!localStorage.getItem("ID") && !localStorage.getItem("access_token") && !localStorage.getItem("adminRigth")) {
+      this.router.navigateByUrl("/");
+    }
+  }
+
+  LikePost(id: string, idUser: string): Observable<unknown>{
+    return this.http.put<unknown>(`http://localhost:3000/api/like/${id}`, {"id": id, "idUser": idUser} )
+      .pipe(
+        catchError(this.handleError)
+    )
+  }
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {
     // A client-side or network error occurred. Handle it accordingly.

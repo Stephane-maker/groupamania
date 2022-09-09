@@ -12,7 +12,6 @@ export class PageAccueilleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
