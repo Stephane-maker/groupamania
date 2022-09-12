@@ -21,3 +21,16 @@ a {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.error {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: red;
+    text-decoration: underline;
+}
+
+@media screen and (max-width:425px) and (min-width:320px) {
+    .shipping-card {
+        width: 90%;
+    }
+}

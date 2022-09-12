@@ -10,6 +10,8 @@ import { GroupamaniaService } from 'src/app/core/service/groupamania.service';
 })
 export class SignInLoginComponent implements OnInit{
   connexionForm!: FormGroup;
+  messageError!: string;
+
   ngOnInit(): void {
     this.connexionForm = this.fb.group({
        email: [null, Validators.required],
@@ -26,11 +28,15 @@ export class SignInLoginComponent implements OnInit{
     this.gs.ConnexionUser(this.connexionForm.value.email, this.connexionForm.value.password).subscribe((data) => {
       localStorage.setItem("access_token", data.token);
       localStorage.setItem("ID", data.userId);
+      console.log(data)
       localStorage.setItem("adminRight", JSON.stringify(data.adminRight))
 
       if (localStorage.getItem("access_token") === data.token && localStorage.getItem("ID") === data.userId) {
         this.router.navigateByUrl("groupamania/accueille");
       }
+    }, (err) => {
+      console.log(err.message)
+
     })
   }
   onBackHome() {

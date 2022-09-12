@@ -3,8 +3,10 @@ img {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    &-redirecting_page {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 mat-card {
@@ -22,5 +24,8 @@ mat-card {
         color: blue;
         text-decoration: underline;
         cursor: pointer;
+    }
+    & .mat-card-actions {
+        margin: 0 2% 0 2%;
     }
 }

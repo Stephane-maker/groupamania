@@ -20,7 +20,6 @@ export class GroupamaniaService  {
   }
 
   getPostById(_id: string): Observable<GroupamaniaGeneralPost>{
-
     return this.http.get<GroupamaniaGeneralPost>(`http://localhost:3000/api/allPost/${_id}`);
   }
 
@@ -53,9 +52,8 @@ export class GroupamaniaService  {
     )
   }
 
-
-deletePost(id: string): Observable<unknown> {
-   const url = `http://localhost:3000/api/deletePost/${id}` ; // DELETE api/heroes/42
+deletePost(id: string): Observable<any> {
+   const url = `http://localhost:3000/api/deletePost/${id}`;
   return this.http.delete(url)
     .pipe(
       catchError(this.handleError)
@@ -89,10 +87,10 @@ deletePost(id: string): Observable<unknown> {
     // The backend returned an unsuccessful response code.
     // The response body may contain clues as to what went wrong.
     console.error(
-      `Backend returned code ${error.status}, body was: `, error.error);
+      `Backend returned code ${error.status}, body was: `, error.error.message);
   }
   // Return an observable with a user-facing error message.
-     return throwError(() => new Error('Something bad happened; please try again later.'));
+     return throwError(() => new Error(error.error.message));
 }
 
 }

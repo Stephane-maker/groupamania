@@ -23,3 +23,68 @@ button {
         color: $tertiaire;
     }
 }
+
+@media screen and (max-width:1024px) and (min-width:426px) {
+    .container {
+        & .mat-card {
+            width: 70%!important;
+            & img {
+                width: 90%;
+                margin-top: 2%;
+            }
+        }
+        &-card {
+            width: 100%;
+        }
+    }
+    .mat-card {
+        margin-top: 8%;
+    }
+}
+
+@media screen and (max-width:425px) and (min-width:320px) {
+    form {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 25%;
+    }
+    .shipping-card {
+        width: auto;
+        & * {
+            display: block!important;
+        }
+    }
+    .mat-form-field {
+        margin-bottom: 5%;
+    }
+    .container {
+        margin-top: 10%!important;
+        & .mat-card {
+            width: 70%!important;
+            & * {
+                display: flex;
+                flex-direction: column;
+                align-items: center!important;
+            }
+            & button {
+                margin: 1% 1% 1% 1%;
+            }
+            & img {
+                margin-top: 2%;
+                width: 90%;
+            }
+        }
+        &-card {
+            width: 100%;
+        }
+        .mat-card {
+            margin-top: 8%;
+        }
+        &-redirecting_page {
+            & .mat-card {
+                width: 80%;
+            }
+        }
+    }
+}

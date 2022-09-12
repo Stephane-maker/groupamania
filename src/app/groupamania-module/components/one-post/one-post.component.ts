@@ -1,4 +1,4 @@
-import { faXmark, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faTrash, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GroupamaniaService } from '../../../core/service/groupamania.service';
@@ -12,15 +12,20 @@ import { Component, OnInit } from '@angular/core';
 export class OnePostComponent implements OnInit {
   faXmark = faXmark;
   faTrash = faTrash;
+  faThumbsUp = faThumbsUp;
   ModifyInput!: FormGroup
   thePost!: string;
-  userIdPoster!: string;
+  userIdPoster!: any;
   IdToPost!: string;
   ImageUrl!: string;
   IdUser!: any;
   actionButtonDelete!: boolean;
   actionModify!: boolean;
-   images!: any;
+  images!: any;
+  like!: Array<unknown>
+  nbrLike!: number;
+  toggle = true;
+  status = 'Enable';
 
   constructor(private gs: GroupamaniaService, private router: Router , private fb: FormBuilder) { }
   ngOnInit(): void {
@@ -35,11 +40,22 @@ export class OnePostComponent implements OnInit {
     this.IdToPost = document.location.href.split("/")[6];
 
     this.gs.getPostById(this.IdToPost).subscribe(data => {
+
+      this.like = data.like;
+      this.nbrLike = this.like.length;
       this.thePost = data.post
       this.userIdPoster = data.userIdPoster
-      this.ImageUrl = data.ImageUrl
+      this.ImageUrl = data.ImageUrl;
+
+    if (this.like.includes(localStorage.getItem("ID"))) {
+      this.toggle = !this.toggle;
+      this.status = this.toggle ? 'Enable' : 'Disable';
+    } else {
+      this.toggle = this.toggle;
+      this.status = this.toggle ? 'Enable' : 'Disable';
+    }
     })
-    this.IdUser = localStorage.getItem("ID")
+    this.IdUser = localStorage.getItem("ID");
   }
 
   onDeletePost() {
@@ -55,7 +71,7 @@ export class OnePostComponent implements OnInit {
       console.log(data)
       this.router.navigateByUrl("groupamania/accueille")
       }, (err) => {
-        console.log(err)
+        console.log(err.message)
     })
   }
 
@@ -64,7 +80,7 @@ export class OnePostComponent implements OnInit {
   }
 
   onStopModify() {
-     this.actionModify = false;
+    this.actionModify = false;
   }
 
   onPostModify(): void {
@@ -83,19 +99,33 @@ export class OnePostComponent implements OnInit {
 }
 
     fileChoosen(event: any) {
-    console.log(event.target.value)
     if (event.target.value) {
       const file = event.target.files[0];
       this.images = file
     }
   }
 
-   onModify() {
+  onModify() {
     this.actionModify = true
   }
 
   onBackHome() {
     this.router.navigateByUrl("groupamania/accueille")
   }
+  enableDisableRule() {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
 
+    if (!this.like.includes(localStorage.getItem("ID"))) {
+      this.nbrLike += 1;
+      this.like.push(localStorage.getItem("ID"))
+    } else {
+      this.nbrLike -= 1;
+      this.like.splice(this.userIdPoster)
+    }
+  this.status = this.toggle ? 'Enable' : 'Disable';
+  this.gs.LikePost(this.IdToPost, this.userIdPoster).subscribe((data) => {
+    console.log(data)
+  })
+}
 }
