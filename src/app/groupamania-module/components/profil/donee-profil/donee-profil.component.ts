@@ -16,7 +16,6 @@ export class DoneeProfilComponent implements OnInit {
   ngOnInit(): void {
     this.gs.TokenVerif()
     this.Posts$ = this.gs.UserPost();
-    console.log(window.location.href)
   }
 
 }

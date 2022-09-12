@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-redirecting_page">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Groupamania</mat-card-title>
@@ -6,12 +6,12 @@
         </mat-card-header>
         <img matCardImage [src]="imageUrl">
         <div class="redirecting">
-            <mat-card-content>
-                Connexion : <a (click)="onConnexion()">Connexion</a>
-            </mat-card-content>
-            <mat-card-content>
-                Inscription : <a (click)="onRegistration()">Inscription</a>
-            </mat-card-content>
+            <mat-card-actions>
+                <a (click)="onConnexion()">Connexion</a>
+            </mat-card-actions>
+            <mat-card-actions>
+                <a (click)="onRegistration()">Inscription</a>
+            </mat-card-actions>
         </div>
     </mat-card>
 </div>

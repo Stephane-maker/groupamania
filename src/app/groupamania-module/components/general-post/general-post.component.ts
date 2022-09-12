@@ -20,6 +20,7 @@ export class GeneralPostComponent implements OnInit {
   localStorageAdminRight!: any;
   userId!: any;
   actionButtonDelete!: boolean;
+  idUser!:  any;
   actionModify!: boolean;
   localStorageAdminRightParse!: boolean;
   images!: any;
@@ -46,6 +47,7 @@ export class GeneralPostComponent implements OnInit {
     if (window.location.href === "http://localhost:4200/groupamania/profil") {
       this.messageNoPostProfil = true;
     }
+   if (this.post.post) {
     this.post.nbrLike = this.post.like.length
     if (this.post.like.includes(localStorage.getItem("ID"))) {
       this.toggle = !this.toggle;
@@ -54,6 +56,8 @@ export class GeneralPostComponent implements OnInit {
       this.toggle = this.toggle;
       this.status = this.toggle ? 'Enable' : 'Disable';
     }
+  }
+  this.idUser = localStorage.getItem("ID")
   }
 
   onPostById() {
@@ -67,7 +71,6 @@ export class GeneralPostComponent implements OnInit {
     this.actionModify = true
   }
   onConfirmaDelete(id:any) {
-    console.log(id)
     this.gs.deletePost(id).subscribe((data) => {
       console.log(data)
       window.location.reload();

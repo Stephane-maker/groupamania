@@ -13,6 +13,7 @@ export class InputNewPostComponent {
    @Input() post!: GroupamaniaGeneralPost;
   title = 'fileUpload';
   images!: "";
+  userId: any;
   multipleImages = [];
 
   addressForm = this.fb.group({
@@ -27,8 +28,10 @@ export class InputNewPostComponent {
     const formdata = new FormData()
     formdata.append('image', this.images)
     if (this.addressForm.value.firstName != null) {
-       formdata.append('post', this.addressForm.value.firstName)
+      formdata.append('post', this.addressForm.value.firstName)
     }
+    this.userId = localStorage.getItem("ID")
+    formdata.append("id" ,  this.userId)
     this.gs.PostImage(formdata).subscribe((data) => {
       console.log(data)
         window.location.reload();

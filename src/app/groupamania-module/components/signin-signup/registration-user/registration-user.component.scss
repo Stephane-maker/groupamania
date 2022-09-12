@@ -1,1 +1,7 @@
 @import "../connexion-user/sign-in-login.component";
+.error {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: red;
+    text-decoration: underline;
+}

@@ -12,6 +12,14 @@
                 <button mat-raised-button color="primary" type="submit" (click)="onDeletePost()" *ngIf="this.IdUser === this.userIdPoster">Supprimer le post</button>
                 <button mat-raised-button color="primary" (click)="onBackHome()">Retour a l'accueille</button>
             </mat-card-actions>
+            <mat-card-actions>
+                <div class="like">
+                    <fa-icon (click)="enableDisableRule()" [ngClass]="{'green' : toggle , 'red': !toggle }" [icon]="faThumbsUp"></fa-icon>
+                    <mat-card-content>
+                        {{this.nbrLike}}
+                    </mat-card-content>
+                </div>
+            </mat-card-actions>
             <div class="warning" *ngIf="actionButtonDelete != false">
                 <p> Etes-vous sur de vouloir supprime ce post cette action est irremediable:</p>
                 <div class="cancel_valid">
