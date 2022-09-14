@@ -17,7 +17,7 @@ export class InputNewPostComponent {
   multipleImages = [];
 
   addressForm = this.fb.group({
-    firstName: ["", Validators.required],
+    post: ["", Validators.required],
 
   });
 
@@ -27,8 +27,8 @@ export class InputNewPostComponent {
 
     const formdata = new FormData()
     formdata.append('image', this.images)
-    if (this.addressForm.value.firstName != null) {
-      formdata.append('post', this.addressForm.value.firstName)
+    if (this.addressForm.value.post != null) {
+      formdata.append('post', this.addressForm.value.post)
     }
     this.userId = localStorage.getItem("ID")
     formdata.append("id" ,  this.userId)

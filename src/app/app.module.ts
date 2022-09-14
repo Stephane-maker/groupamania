@@ -3,7 +3,8 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './router/router.module';
 
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,7 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { JwtModule } from "@auth0/angular-jwt";
 import { HttpClientModule } from '@angular/common/http';
-
+import * as fr from "@angular/common/locales/fr";
+import { registerLocaleData } from '@angular/common';
 export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
@@ -43,9 +45,14 @@ export function tokenGetter() {
       },
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {provide: LOCALE_ID, useValue: "fr-FR"}
+  ]
 })
 
 export class AppModule {
-
+  constructor() {
+    registerLocaleData(fr.default)
+  }
 }

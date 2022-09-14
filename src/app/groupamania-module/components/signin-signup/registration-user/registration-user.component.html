@@ -59,11 +59,8 @@
             <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
             </mat-card-actions>
-            <mat-card-content class="error" *ngIf="this.messageError">
-                {{this.messageError}}
-            </mat-card-content>
             <mat-card-actions>
-                <a (click)="onBackHome()">Retour a l'accueille</a>
+                <button mat-raised-button (click)="onBackHome()">Retour a l'accueille</button>
             </mat-card-actions>
         </mat-card>
     </form>
