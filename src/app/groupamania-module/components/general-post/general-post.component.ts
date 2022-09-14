@@ -47,7 +47,7 @@ export class GeneralPostComponent implements OnInit {
     if (window.location.href === "http://localhost:4200/groupamania/profil") {
       this.messageNoPostProfil = true;
     }
-   if (this.post.post) {
+    if (this.post.post) {
     this.post.nbrLike = this.post.like.length
     if (this.post.like.includes(localStorage.getItem("ID"))) {
       this.toggle = !this.toggle;
@@ -97,9 +97,7 @@ export class GeneralPostComponent implements OnInit {
       this.post.like.splice(this.userId)
     }
   this.status = this.toggle ? 'Enable' : 'Disable';
-  this.gs.LikePost(this.post._id, this.userId).subscribe((data) => {
-    console.log(data)
-  })
+  this.gs.LikePost(this.post._id, this.userId).subscribe((data) => {})
 }
 
   onPostModify(): void {
@@ -108,16 +106,13 @@ export class GeneralPostComponent implements OnInit {
     if (this.ModifyInput.value.textModify != null) {
       formdata.append('post', this.ModifyInput.value.textModify)
     }
-    console.log((this.ModifyInput.value.textModify))
     this.gs.ModifyPost(this.post._id, formdata).subscribe((data) => {
-      console.log(data)
       window.location.reload();
     }, (err) => {
       console.log(err)
     })
 }
-   fileChoosen(event: any) {
-    console.log(event.target.value)
+  fileChoosen(event: any) {
     if (event.target.value) {
       const file = event.target.files[0];
       this.images = file

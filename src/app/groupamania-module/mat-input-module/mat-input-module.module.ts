@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,6 +48,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FontAwesomeModule,
     MatExpansionModule,
     MatTableModule
+  ],
+  providers: [
+    MatSnackBar
   ]
 })
 export class MatInputModuleModule { }

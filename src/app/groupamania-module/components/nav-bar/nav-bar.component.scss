@@ -6,10 +6,10 @@
 fa-icon {
     font-size: 2rem;
     margin: 0% 1% 0 1%;
-    color: $primaire;
+    color: $secondaire;
     cursor: pointer;
     &:hover {
-        color: $secondaire;
+        color: $primaire;
     }
 }
 
@@ -20,10 +20,10 @@ nav {
 }
 
 span {
-    color: $primaire;
+    color: $secondaire;
     font-size: 2rem;
     cursor: pointer;
     &:hover {
-        color: $secondaire;
+        color: $primaire;
     }
 }

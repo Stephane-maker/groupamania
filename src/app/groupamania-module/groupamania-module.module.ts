@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatInputModuleModule } from './mat-input-module/mat-input-module.module';
@@ -5,7 +6,7 @@ import { MatInputModuleModule } from './mat-input-module/mat-input-module.module
 import { GroupamaniaRouterModule } from './groupamania-router/groupamania-router.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { GeneralPostComponent } from './components/general-post/general-post.component';
@@ -28,6 +29,10 @@ import { RedirectionPageComponent } from './components/signin-signup/redirection
 import { RegistrationUserComponent } from './components/signin-signup/registration-user/registration-user.component';
 import { DoneeProfilComponent } from './components/profil/donee-profil/donee-profil.component';
 import { AffichageProfilComponent } from './components/profil/affichage-profil/affichage-profil.component';
+
+import * as fr from "@angular/common/locales/fr";
+import { registerLocaleData } from '@angular/common';
+
 @NgModule({
   declarations: [
     GeneralPostComponent,
@@ -59,6 +64,13 @@ import { AffichageProfilComponent } from './components/profil/affichage-profil/a
     PageAccueilleComponent,
     PageProfilComponent,
     FontAwesomeModule
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR'}
   ]
 })
-export class GroupamaniaModuleModule { }
+export class GroupamaniaModuleModule {
+   constructor() {
+       registerLocaleData(fr.default);
+  }
+ }

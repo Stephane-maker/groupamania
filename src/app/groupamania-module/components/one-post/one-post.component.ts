@@ -34,7 +34,7 @@ export class OnePostComponent implements OnInit {
     this.actionModify = false;
 
     this.ModifyInput = this.fb.group({
-      textModify: [null, Validators.required]
+      textModify: ["", Validators.required]
     })
 
     this.IdToPost = document.location.href.split("/")[6];
@@ -68,7 +68,6 @@ export class OnePostComponent implements OnInit {
 
   onConfirmaDelete() {
     this.gs.deletePost(this.IdToPost).subscribe((data) => {
-      console.log(data)
       this.router.navigateByUrl("groupamania/accueille")
       }, (err) => {
         console.log(err.message)
@@ -84,14 +83,12 @@ export class OnePostComponent implements OnInit {
   }
 
   onPostModify(): void {
-      console.log(this.ModifyInput.value.textModify)
     const formdata = new FormData()
     formdata.append('image', this.images)
     if (this.ModifyInput.value.textModify != null) {
       formdata.append('post', this.ModifyInput.value.textModify)
     }
     this.gs.ModifyPost(this.IdToPost, formdata).subscribe((data) => {
-      console.log(data)
       window.location.reload();
     }, (err) => {
       console.log(err)
@@ -125,7 +122,6 @@ export class OnePostComponent implements OnInit {
     }
   this.status = this.toggle ? 'Enable' : 'Disable';
   this.gs.LikePost(this.IdToPost, this.userIdPoster).subscribe((data) => {
-    console.log(data)
   })
 }
 }
