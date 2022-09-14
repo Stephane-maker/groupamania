@@ -28,7 +28,6 @@ export class RegistrationUserComponent implements OnInit {
   constructor(private fb: FormBuilder, private gs : GroupamaniaService, private router: Router, private _snackBar: MatSnackBar) {}
 
   onSubmit(): void {
-    console.log(this.InscriptionForm.valid)
     if (this.InscriptionForm.valid) {
     this.gs.InscriptionUser(this.InscriptionForm.value.email,this.InscriptionForm.value.confirmEmail,this.InscriptionForm.value.password,this.InscriptionForm.value.confirmPassword).subscribe((data) => {
             this.router.navigateByUrl("/")
@@ -47,9 +46,6 @@ export class RegistrationUserComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-
       this._snackBar.open(message, action);
-
-
   }
 }

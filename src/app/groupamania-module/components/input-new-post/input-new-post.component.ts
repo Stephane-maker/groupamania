@@ -17,7 +17,7 @@ export class InputNewPostComponent {
   multipleImages = [];
 
   addressForm = this.fb.group({
-    post: ["", Validators.required],
+    post: [null, Validators.required],
 
   });
 
@@ -33,7 +33,6 @@ export class InputNewPostComponent {
     this.userId = localStorage.getItem("ID")
     formdata.append("id" ,  this.userId)
     this.gs.PostImage(formdata).subscribe((data) => {
-      console.log(data)
         window.location.reload();
     }, (err) => {
       console.log(err)
@@ -41,7 +40,6 @@ export class InputNewPostComponent {
 
 }
   fileChoosen(event: any) {
-    console.log(event.target.value)
     if (event.target.value) {
       const file = event.target.files[0];
       this.images = file
