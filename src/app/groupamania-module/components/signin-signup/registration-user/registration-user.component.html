@@ -8,31 +8,30 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <input matInput placeholder="email" formControlName="email">
+                            <input matInput placeholder="email" formControlName="email" type="email">
                             <mat-error *ngIf="InscriptionForm.controls['email'].hasError('required')">
                                 email is <strong>required</strong>
                             </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col">
-                        <mat-form-field class="full-width">
-                            <input matInput placeholder="confirm Email" formControlName="confirmEmail">
-                            <mat-error *ngIf="InscriptionForm.controls['confirmEmail'].hasError('required')">
-                                confirm Email is <strong>required</strong>
+                            <mat-error *ngIf="InscriptionForm.controls['email'].hasError('pattern')">
+                                it's not <strong>a valid email</strong>
                             </mat-error>
                         </mat-form-field>
                     </div>
+
                     <div class="col">
                         <mat-form-field class="full-width">
                             <input matInput placeholder="password" type="password" formControlName="password">
                             <mat-error *ngIf="InscriptionForm.controls['password'].hasError('required')">
                                 password is <strong>required</strong>
                             </mat-error>
+                            <mat-error *ngIf="InscriptionForm.controls['password'].hasError('minlength')">
+                                password must have <strong> > 8 characters</strong>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col">
                         <mat-form-field class="full-width">
-                            <input matInput placeholder="confirm Password" type="confirmPassword" formControlName="confirmPassword">
+                            <input matInput placeholder="confirm Password" type="password" formControlName="confirmPassword">
                             <mat-error *ngIf="InscriptionForm.controls['confirmPassword'].hasError('required')">
                                 confirm Password is <strong>required</strong>
                             </mat-error>
