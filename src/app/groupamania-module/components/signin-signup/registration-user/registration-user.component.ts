@@ -18,9 +18,8 @@ export class RegistrationUserComponent implements OnInit {
 
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
-    email: [null, Validators.required],
-    confirmEmail: [null, Validators.required],
-    password: [null, Validators.required],
+    email: [null, [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]],
+    password: [null,[ Validators.required, Validators.minLength(8)]],
     confirmPassword: [null,Validators.required]
   });
   }
@@ -29,6 +28,7 @@ export class RegistrationUserComponent implements OnInit {
 
   onSubmit(): void {
     if (this.InscriptionForm.valid) {
+
     this.gs.InscriptionUser(this.InscriptionForm.value.email,this.InscriptionForm.value.confirmEmail,this.InscriptionForm.value.password,this.InscriptionForm.value.confirmPassword).subscribe((data) => {
             this.router.navigateByUrl("/")
     }, (err) => {
